@@ -2,13 +2,72 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>关于我 - 我的个人网站</title>
+  <title>测试用沙盒 - 这里用来实验我学习的html知识</title>
 </head>
 <body>
-  <h1>关于我</h1>
-  <p>大家好，我是 fsx-saki，目前正在学习服务器运维和建站。</p>
-  <p>这里是我的第一个阿里云个人网站。</p>
-  <p>这是一个使用vscode编辑的测试。</p>
+  <h1>测试用沙盒</h1>
+  <p>这是一个测试用的沙盒页面，用来实验我学习的 HTML 知识。</p>
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="100">
+  <circle id="colorCircle" cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="grey" />
+</svg>
+<button type="button" onclick="changeCircleColor()">点我！</button>
+
+<script>
+  function changeCircleColor() {
+    const colors = [
+      '#FF6B6B', '#4ECDC4', '#FFD166', '#06D6A0', '#118AB2',
+      '#EF476F', '#FFD166', '#06D6A0', '#073B4C', '#7209B7',
+      '#F72585', '#3A86FF', '#FB5607', '#8338EC', '#3A86FF'
+    ];
+    
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById('colorCircle').setAttribute('fill', randomColor);
+  }
+</script>
+
+
+<style>
+    #myCircle {
+        transition: all 0.5s ease;
+        cursor: pointer;
+    }
+    
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="100">
+  <circle id="myCircle" cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="grey" 
+          onclick="this.setAttribute('fill', '#'+Math.random().toString(16).slice(2,8).toUpperCase().padEnd(6,'0'))" />
+</svg>
+<button type="button" onclick="changeColor()">点我切换颜色！</button>
+
+<script>
+  function changeColor() {
+    const circle = document.getElementById('myCircle');
+    // 生成鲜艳的随机颜色
+    const hue = Math.floor(Math.random() * 360);
+    const randomColor = `hsl(${hue}, 80%, 60%)`;
+    circle.setAttribute('fill', randomColor);
+    
+    // 可选：也随机改变边框颜色
+    circle.setAttribute('stroke', `hsl(${(hue + 180) % 360}, 80%, 40%)`);
+  }
+</script>
+
+
 
   <p><a href="index.html">返回首页</a></p>
 
